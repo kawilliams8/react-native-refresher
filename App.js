@@ -1,18 +1,31 @@
-import React, { useState } from "react";
-import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
+import React, { Component } from "react";
+import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 
-const App = () => {
-  const [count, setCount] = useState(0);
+class App extends Component {
+  state = {
+    count: 0,
+  };
 
-  return (
-    <View style={styles.container}>
-      <Text>You clicked {count} times</Text>
-      <TouchableOpacity onPress={() => setCount(count + 1)} style={styles.appButtonContainer}>
-        <Text style={styles.appButtonText}>Click me!</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
+  onPress = () => {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity style={styles.appButtonContainer} onPress={this.onPress}>
+          <Text style={styles.appButtonText}>Click me</Text>
+        </TouchableOpacity>
+        <View>
+          <Text>You clicked {this.state.count} times</Text>
+        </View>
+      </View>
+    );
+  }
+}
+
 
 const styles = StyleSheet.create({
   container: {
