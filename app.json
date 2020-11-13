@@ -1,0 +1,12 @@
+{
+  "name": "react-native-refresher",
+  "displayName": "react-native-refresher",
+  "expo": {
+    "name": "react-native-refresher",
+    "slug": "react-native-refresher",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
