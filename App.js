@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -7,18 +7,34 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text>You clicked {count} times</Text>
-      <Button style={styles.button} onPress={() => setCount(count + 1)} title="Click me!" />
+      <TouchableOpacity onPress={() => setCount(count + 1)} style={styles.appButtonContainer}>
+        <Text style={styles.appButtonText}>Click me!</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
-// React Native Styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  }
+  },
+  appButtonContainer: {
+    elevation: 8,
+    backgroundColor: "#009688",
+    borderRadius: 10,
+    marginVertical: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+  },
+  appButtonText: {
+    fontSize: 18,
+    color: "#fff",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "uppercase",
+  },
 });
 
 export default App;
